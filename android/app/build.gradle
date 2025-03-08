@@ -1,0 +1,41 @@
+// android/app/build.gradle (App-level)
+plugins {
+    id "com.android.application"
+    id "kotlin-android"  // Kotlin plugin
+    id "dev.flutter.flutter-gradle-plugin"  // Flutter plugin for building Android apps
+}
+
+android {
+    namespace = "com.myquiz.app"  // Your unique app namespace (change if necessary)
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId = "com.myquiz.app"  // Your application ID
+        minSdk = 23  // Minimum SDK version for your app
+        targetSdk = flutter.targetSdkVersion  // Target SDK version
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug  // Release signing configuration
+        }
+    }
+}
+
+dependencies {
+    // Add non-Firebase dependencies as necessary for your app
+}
+
+// No Firebase plugins applied here
